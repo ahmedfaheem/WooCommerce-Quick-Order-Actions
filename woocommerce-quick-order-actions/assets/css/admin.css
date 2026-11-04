@@ -1,0 +1,317 @@
+/* WooCommerce Quick Order Actions. Uses logical properties so it works in LTR and RTL. */
+
+.wcqoa-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	margin-inline-start: 4px;
+	padding: 0;
+	border: 0;
+	border-radius: 3px;
+	background: transparent;
+	color: #2271b1;
+	cursor: pointer;
+	vertical-align: middle;
+	opacity: 0.65;
+	transition: opacity 0.15s, background-color 0.15s;
+}
+
+.wcqoa-icon .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+}
+
+.wcqoa-icon:hover,
+.wcqoa-icon:focus,
+.wcqoa-icon[aria-expanded="true"] {
+	opacity: 1;
+	background: #f0f6fc;
+	outline: none;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.wcqoa-popover {
+	position: absolute;
+	z-index: 100100;
+	box-sizing: border-box;
+	width: 300px;
+	max-width: calc(100vw - 16px);
+	padding: 12px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 6px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+	font-size: 13px;
+	line-height: 1.4;
+	text-align: start;
+}
+
+.wcqoa-title {
+	margin-bottom: 8px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.wcqoa-field {
+	display: block;
+	margin: 0 0 8px;
+	min-width: 0;
+}
+
+.wcqoa-label {
+	display: block;
+	margin-bottom: 2px;
+	font-size: 12px;
+	color: #50575e;
+}
+
+.wcqoa-input {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: none;
+	min-height: 30px;
+}
+
+.wcqoa-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+}
+
+.wcqoa-tabs {
+	display: flex;
+	gap: 4px;
+	margin-bottom: 8px;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.wcqoa-tab {
+	padding: 4px 10px;
+	border: 0;
+	border-bottom: 2px solid transparent;
+	background: transparent;
+	color: #50575e;
+	cursor: pointer;
+}
+
+.wcqoa-tab.is-active {
+	border-bottom-color: #2271b1;
+	color: #2271b1;
+	font-weight: 600;
+}
+
+.wcqoa-group[hidden] {
+	display: none;
+}
+
+.wcqoa-loading {
+	margin: 0 0 8px;
+	color: #50575e;
+}
+
+.wcqoa-msg:empty {
+	display: none;
+}
+
+.wcqoa-msg {
+	margin-top: 8px;
+	margin-bottom: 0;
+	padding: 6px 8px;
+	border-inline-start: 3px solid #00a32a;
+	background: #f6f7f7;
+}
+
+.wcqoa-msg.is-error {
+	border-inline-start-color: #d63638;
+	color: #8a2424;
+}
+
+.wcqoa-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 6px;
+}
+
+.wcqoa-spinner {
+	display: none;
+	width: 16px;
+	height: 16px;
+	border: 2px solid #dcdcde;
+	border-top-color: #2271b1;
+	border-radius: 50%;
+	animation: wcqoa-spin 0.7s linear infinite;
+}
+
+.wcqoa-spinner.is-active {
+	display: inline-block;
+}
+
+@keyframes wcqoa-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.wcqoa-toast {
+	position: fixed;
+	z-index: 100200;
+	inset-block-end: 24px;
+	inset-inline-end: 24px;
+	max-width: calc(100vw - 48px);
+	padding: 10px 14px;
+	background: #1d2327;
+	color: #fff;
+	border-inline-start: 4px solid #00a32a;
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.wcqoa-toast.is-error {
+	border-inline-start-color: #d63638;
+}
+
+.column-wcqoa_phone {
+	width: 12ch;
+}
+
+.wcqoa-phone2-value {
+	display: block;
+}
+
+.wcqoa-hint {
+	margin: 0 0 8px;
+	color: #50575e;
+	font-size: 12px;
+}
+
+.wcqoa-note-text {
+	white-space: pre-line;
+	overflow-wrap: anywhere;
+}
+
+/* Order preview modal panel. */
+.wcqoa-preview {
+	box-sizing: border-box;
+	margin: 16px 0 8px;
+	padding: 10px 12px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	font-size: 13px;
+	line-height: 1.4;
+	text-align: start;
+}
+
+.wcqoa-preview .wcqoa-title {
+	margin: 0 0 8px;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.wcqoa-preview .wcqoa-tabs {
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 0;
+	border: 0;
+}
+
+.wcqoa-preview .wcqoa-tab {
+	min-height: 0;
+	padding: 4px 12px;
+	border: 1px solid #c3c4c7;
+	border-radius: 999px;
+	background: #fff;
+	color: #50575e;
+	font-size: 12px;
+	line-height: 1.6;
+}
+
+.wcqoa-preview .wcqoa-tab.is-active {
+	border-color: #2271b1;
+	background: #2271b1;
+	color: #fff;
+}
+
+.wcqoa-preview .wcqoa-pane:empty {
+	display: none;
+}
+
+.wcqoa-preview .wcqoa-pane {
+	margin-top: 10px;
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+.wcqoa-preview .wcqoa-input {
+	max-width: 100%;
+	height: 32px;
+	padding: 0 8px;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+.wcqoa-preview textarea.wcqoa-input {
+	height: auto;
+	padding: 6px 8px;
+}
+
+.wcqoa-preview .wcqoa-form {
+	margin: 0;
+}
+
+.wcqoa-preview .wcqoa-field {
+	margin-bottom: 8px;
+}
+
+.wcqoa-preview .wcqoa-row {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wcqoa-preview .wcqoa-actions {
+	justify-content: flex-start;
+	margin-top: 4px;
+}
+
+.wcqoa-preview .wcqoa-actions .button {
+	min-height: 30px;
+	margin: 0;
+	padding: 0 14px;
+	font-size: 13px;
+	line-height: 28px;
+}
+
+@media screen and (max-width: 600px) {
+	.wcqoa-preview .wcqoa-row {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Mobile: bottom sheet style popover. */
+@media screen and (max-width: 600px) {
+	.wcqoa-popover {
+		position: fixed;
+		inset-inline: 8px;
+		inset-block-end: 8px;
+		width: auto;
+		max-height: 80vh;
+		overflow-y: auto;
+	}
+
+	.wcqoa-icon {
+		width: 32px;
+		height: 32px;
+		opacity: 1;
+	}
+
+	.wcqoa-input {
+		min-height: 40px;
+		font-size: 16px;
+	}
+}
+
