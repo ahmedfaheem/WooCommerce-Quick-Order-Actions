@@ -1,5 +1,5 @@
 === WooCommerce Quick Order Actions ===
-Contributors: yourname
+Contributors: Ahmed Faheem
 Tags: woocommerce, orders, quick edit, order status, hpos
 Requires at least: 6.0
 Tested up to: 6.7
